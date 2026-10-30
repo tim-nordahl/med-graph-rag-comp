@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medcite"
+version = "0.1.0"
+description = "Answer correctness and citation faithfulness for graph vs dense retrieval on biomedical QA"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pyyaml", "openai>=1.0", "requests", "tqdm"]
+
+[project.optional-dependencies]
+medcpt = ["torch", "transformers"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["medcite*"]

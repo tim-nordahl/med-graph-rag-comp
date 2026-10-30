@@ -1,0 +1,16 @@
+# Core (enough for BM25 baseline, evaluation, data prep)
+numpy
+pyyaml
+openai>=1.0
+requests
+tqdm
+# Dense / RAG2-style retrievers (MedCPT). On AMD, install the ROCm build of torch first:
+#   pip install torch --index-url https://download.pytorch.org/whl/rocmX.Y   (match your ROCm version)
+torch
+transformers
+# Tests
+pytest
+yaml
+# HippoRAG 2 is installed in a SEPARATE environment, see README ("HippoRAG 2 setup").
+
+matplotlib

@@ -1,0 +1,36 @@
+seed: 13
+k: 5                      # passages given to the generator, and cut-off for retrieval eval
+workers: 8                # parallel API calls
+runs_dir: runs
+cache_dir: .cache
+compute_citation_precision: true
+
+datasets:
+  bioasq:   {dir: data/bioasq}
+  graphrag_medical: {dir: data/graphrag_medical}
+
+generator:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: LLM_API_KEY
+  model: meta-llama/llama-3.3-70b-instruct
+  temperature: 0.0
+  max_tokens: 400
+
+judge:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: LLM_API_KEY
+  model: qwen/qwen-2.5-72b-instruct
+  temperature: 0.0
+  max_tokens: 16
+
+retrievers:
+  rag2:
+    query_mode: rationale
+    rerank: false
+    candidates: 50
+  hipporag2:
+    embedding_model_name: facebook/contriever
+
+pricing_per_million:
+  meta-llama/Llama-3.3-70B-Instruct: [0.23, 0.40]
+  Qwen/Qwen2.5-72B-Instruct: [0.23, 0.40]
